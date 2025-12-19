@@ -13,8 +13,7 @@ main
 Return code: 0
 
 ## STDOUT
-M p1/scripts/common.sh
-?? tests/
+M tests/git_agent.md
 
 ## STDERR
 
@@ -36,9 +35,8 @@ Return code: 0
 Return code: 0
 
 ## STDOUT
-[main c8d0b9a] chore: auto-commit via git agent
- 2 files changed, 87 insertions(+), 1 deletion(-)
- create mode 100644 tests/git_agent.md
+[main c702815] chore: auto-commit via git agent
+ 1 file changed, 6 insertions(+), 16 deletions(-)
 
 ## STDERR
 
@@ -64,6 +62,6 @@ Return code: 0
 
 ## STDERR
 To github.com:moouahab/iot-.git
-   35ce793..c8d0b9a  main -> main
+   c8d0b9a..c702815  main -> main
 
 ----

@@ -20,6 +20,7 @@ apt install -y \
 
 # Désactiver swap (obligatoire pour Kubernetes)
 swapoff -a
+
 # Ne pas supprimer plusieurs fois : on commente les lignes swap si présentes
 sed -i 's/^\(.*swap.*\)$/#\1/' /etc/fstab
 
