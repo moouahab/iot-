@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
 
+export DEBIAN_FRONTEND=noninteractive
+
 apt update && apt upgrade -y
 
 apt install -y \
@@ -9,7 +11,12 @@ apt install -y \
   ca-certificates \
   gnupg \
   lsb-release \
-  apt-transport-https
+  apt-transport-https \
+  iptables \
+  iptables-persistent \
+  conntrack \
+  socat \
+  net-tools
 
 # Désactiver swap (obligatoire pour Kubernetes)
 swapoff -a
