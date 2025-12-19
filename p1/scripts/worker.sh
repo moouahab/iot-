@@ -1,6 +1,11 @@
 #!/bin/bash
 set -e
 
+if systemctl is-active --quiet k3s-agent; then
+  echo "K3s agent deja actif, on saute l'installation."
+  exit 0
+fi
+
 while [ ! -f /vagrant/node-token ]; do
   sleep 2
 done

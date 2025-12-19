@@ -13,11 +13,14 @@ apt install -y \
 
 # Désactiver swap (obligatoire pour Kubernetes)
 swapoff -a
-sed -i '/swap/d' /etc/fstab
+# Ne pas supprimer plusieurs fois : on commente les lignes swap si présentes
+sed -i 's/^\(.*swap.*\)$/#\1/' /etc/fstab
 
 # Activer modules réseau
 modprobe br_netfilter
-echo "br_netfilter" >> /etc/modules
+if ! grep -q '^br_netfilter$' /etc/modules; then
+  echo "br_netfilter" >> /etc/modules
+fi
 
 cat <<EOF | tee /etc/sysctl.d/k8s.conf
 net.bridge.bridge-nf-call-ip6tables = 1
